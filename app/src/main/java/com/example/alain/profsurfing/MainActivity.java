@@ -1,7 +1,9 @@
 package com.example.alain.profsurfing;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,5 +21,9 @@ public class MainActivity extends Activity {
         mAuth = FirebaseAuth.getInstance();
 
     }
+
+    public void goToProfile(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
 }
-//b,fdkcl,v
