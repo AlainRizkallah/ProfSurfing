@@ -26,4 +26,9 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
+
+    public void createAccount(View view) {
+        Intent intent = new Intent (this,CreateAccountActivity.class );
+        startActivity(intent);
+    }
 }
