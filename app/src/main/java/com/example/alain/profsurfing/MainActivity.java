@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Arrays;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +26,12 @@ public class MainActivity extends Activity {
 
     public void createAccount(View view) {
         Intent intent = new Intent (this,CreateAccountActivity.class );
+        startActivity(intent);
+    }
+
+    public void Calendar (View view){
+
+        Intent intent = new Intent(this, Calendar.class);
         startActivity(intent);
     }
 }
