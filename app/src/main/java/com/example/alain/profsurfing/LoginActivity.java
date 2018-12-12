@@ -48,6 +48,8 @@ public class LoginActivity extends Activity {
                             Log.d("signin", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
+                            Intent profile_intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            startActivity(profile_intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("signin", "signInWithEmail:failure", task.getException());
