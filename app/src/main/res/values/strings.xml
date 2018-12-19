@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ProfSurfing</string>
+    <string name="profile">profil</string>
+    <string name="calendar">calendar</string>
+    <string name="notification">notifications</string>
+    <string name="search">search</string>
+    <string name="edit">settings</string>
 </resources>
