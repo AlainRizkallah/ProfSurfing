@@ -7,19 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <ImageButton
-        android:id="@+id/button_settings"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="0dp"
-        android:background="@android:color/transparent"
-        android:onClick="logout"
-        android:scaleType="fitXY"
-        android:src="@drawable/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
     <ImageView
         android:id="@+id/main_profil_icon"
         android:layout_width="match_parent"
@@ -32,12 +19,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-
     <ImageButton
         android:id="@+id/button_logout"
         android:layout_width="50dp"
         android:layout_height="40dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginRight="16dp"
         android:background="@android:color/transparent"
         android:onClick="logout"
         android:scaleType="fitXY"
@@ -45,7 +31,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.033" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -58,10 +45,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="362dp"
         android:layout_alignParentTop="true"
@@ -74,26 +59,27 @@
 
         <ExpandableListView
             android:id="@+id/simple_expandable_listview"
+            style="@android:style/Widget.Material.Light.ExpandableListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="#000000"
             android:dividerHeight="2dp"></ExpandableListView>
 
     </LinearLayout>
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="#ded4d4"
         app:itemIconTint="#464545"
         app:itemTextColor="#0a0a0a"
+        app:menu="@menu/menu"
+        tools:layout_editor_absoluteY="451dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu" />
+        />
+
 
 
 </android.support.constraint.ConstraintLayout>
