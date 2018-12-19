@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseUserMetadata;
 
 public class LoginActivity extends Activity {
 
@@ -47,9 +48,8 @@ public class LoginActivity extends Activity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("signin", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                            Intent profile_intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                            startActivity(profile_intent);
+                            updateUI(user);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("signin", "signInWithEmail:failure", task.getException());
@@ -66,6 +66,22 @@ public class LoginActivity extends Activity {
                     }
                 });
         // [END sign_in_with_email]
+    }
+
+    private void updateUI(FirebaseUser user) {
+
+        FirebaseUserMetadata metadata = user.getMetadata();
+        if (metadata.getCreationTimestamp() == metadata.getLastSignInTimestamp()) {
+            // The user is new, show them a fancy intro screen!
+            Intent firstime_intent = new Intent(LoginActivity.this, FirstTimeActivity.class);
+            firstime_intent.putExtra("user", user);
+            startActivity(firstime_intent);
+
+        } else {
+            // This is an existing user, show them a welcome back screen.
+            Intent profile_intent = new Intent(LoginActivity.this, ProfileActivity.class);
+            startActivity(profile_intent);
+        }
     }
 
     private boolean validateForm() {
