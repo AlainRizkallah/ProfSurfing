@@ -10,20 +10,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ProfileActivity extends Activity {
+    TextView nomPrenom;
+    private ValueEventListener mPostListener;
+    private DatabaseReference mPostReference;
+    private FirebaseDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        database = FirebaseDatabase.getInstance();
+        nomPrenom = findViewById(R.id.textView_nomPrenom);
         BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);
         Menu menu = mBottomNavigation.getMenu();
         MenuItem menuItem = menu.getItem(0);
@@ -60,6 +75,19 @@ public class ProfileActivity extends Activity {
         setItems();
         setListener();
     }
+
+    public void update_info(){
+
+    }
+    ValueEventListener postListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            // Get Post object and use the values to update the UI
+            Post post = dataSnapshot.getValue();
+            // ...
+        }
+    };
+mPostReference.addValueEventListener(postListener);
 
 
     public void logout(View view){

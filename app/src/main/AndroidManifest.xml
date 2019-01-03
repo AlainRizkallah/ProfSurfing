@@ -19,9 +19,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />
-<<<<<<< HEAD
         <activity android:name=".FirstTimeActivity"></activity>
-=======
         <activity android:name=".SearchActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".NotificationActivity" />
@@ -31,7 +29,6 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".EditActivity"></activity>
->>>>>>> e6d8d252d8d5db9653815261e8e8d4d459b0e3ad
     </application>
 
 </manifest>
