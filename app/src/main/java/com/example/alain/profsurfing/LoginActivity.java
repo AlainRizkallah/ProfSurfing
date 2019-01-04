@@ -79,8 +79,8 @@ public class LoginActivity extends Activity {
 
         } else {
             // This is an existing user, show them a welcome back screen.
-            Intent profile_intent = new Intent(LoginActivity.this, ProfileActivity.class);
-            startActivity(profile_intent);
+            Intent profil_intent = new Intent(LoginActivity.this, ProfilActivity.class);
+            startActivity(profil_intent);
         }
     }
 
