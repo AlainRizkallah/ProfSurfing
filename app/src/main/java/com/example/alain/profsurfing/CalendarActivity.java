@@ -22,8 +22,8 @@ public class CalendarActivity extends Activity {
         menuItem.setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener((item) -> {
             switch (item.getItemId()) {
-                case R.id.menu_profile:
-                    Intent profil = new Intent(CalendarActivity.this, ProfileActivity.class);
+                case R.id.menu_profil:
+                    Intent profil = new Intent(CalendarActivity.this, ProfilActivity.class);
                     startActivity(profil);
                     break;
                 case R.id.menu_calendar:

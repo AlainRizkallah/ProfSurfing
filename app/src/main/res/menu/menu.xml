@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item
-    android:id="@+id/menu_profile"
+    android:id="@+id/menu_profil"
     android:title="@string/profile"
     android:icon="@drawable/profilicon"
     />
@@ -26,6 +26,6 @@
 <item
     android:id="@+id/menu_edit"
     android:title="Settings"
-    android:icon="@drawable/settings"
+    android:icon="@drawable/setting"
     />
 </menu>

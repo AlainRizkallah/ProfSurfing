@@ -19,8 +19,8 @@ public class NotificationActivity extends Activity {
         menuItem.setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener((item) -> {
             switch (item.getItemId()) {
-                case R.id.menu_profile:
-                    Intent notification = new Intent(NotificationActivity.this, ProfileActivity.class);
+                case R.id.menu_profil:
+                    Intent notification = new Intent(NotificationActivity.this, ProfilActivity.class);
                     startActivity(notification);
                     break;
                 case R.id.menu_calendar:

@@ -24,8 +24,8 @@ public class SearchActivity extends Activity {
         menuItem.setChecked(true);
         mBottomNavigation.setOnNavigationItemSelectedListener((item) -> {
             switch (item.getItemId()) {
-                case R.id.menu_profile:
-                    Intent profil = new Intent(SearchActivity.this, ProfileActivity.class);
+                case R.id.menu_profil:
+                    Intent profil = new Intent(SearchActivity.this, ProfilActivity.class);
                     startActivity(profil);
                     break;
                 case R.id.menu_calendar:

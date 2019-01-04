@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
     }
 
     public void goToProfile(View view) {
-        Intent intent = new Intent(this, ProfileActivity.class);
+        Intent intent = new Intent(this, ProfilActivity.class);
         startActivity(intent);
     }
     public void goToLogin(View view) {
@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
             startActivity(intent);
             }
         else{
-            Intent intent = new Intent(this, ProfileActivity.class);
+            Intent intent = new Intent(this, ProfilActivity.class);
             startActivity(intent);
         }
 
