@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="#ded4d4"
+        app:itemIconTint="#464545"
+        app:itemTextColor="#0a0a0a"
+        app:menu="@menu/menu" />
+
+</RelativeLayout>

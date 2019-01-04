@@ -36,6 +36,10 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="78dp"
+<<<<<<< HEAD
+=======
+        android:onClick="loginClick"
+>>>>>>> 547a5f2bd2d744abfd7773fffb0cabb5e5e09c60
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
