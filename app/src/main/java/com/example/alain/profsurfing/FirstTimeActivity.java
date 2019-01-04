@@ -48,8 +48,8 @@ public class FirstTimeActivity extends Activity {
             Log.d("atribu2", firstName.getText().toString());
             Log.d("atribu3", lastName.getText().toString());
             Log.d("atribu4", String.valueOf(tutorswitch.isChecked()));
-            Intent profile_intent = new Intent(this, ProfileActivity.class);
-            startActivity(profile_intent);
+            Intent profil_intent = new Intent(this, ProfilActivity.class);
+            startActivity(profil_intent);
 
         }
 

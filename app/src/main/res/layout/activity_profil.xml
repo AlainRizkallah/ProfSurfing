@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/main_profil_icon"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnChoose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="Choose"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="Upload"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/roboto" />
+
+    <ImageButton
+        android:id="@+id/button_logout"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:onClick="logout"
+        android:scaleType="fitXY"
+        android:src="@drawable/logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="#ded4d4"
+        app:itemIconTint="#464545"
+        app:itemTextColor="#0a0a0a"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:gravity="top|left"
+        android:orientation="vertical"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/studyLevel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Study level"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/studyLevel_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/school"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="School/College"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/school_edit"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="City"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/city_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:textSize="16sp"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/weaknesses"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Weakness(es)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/weaknesses_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/firstNameInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/lastNameInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="invisible" />
+    </LinearLayout>
+</RelativeLayout>
