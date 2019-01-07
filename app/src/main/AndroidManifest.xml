@@ -27,11 +27,15 @@
         <activity android:name=".Calendar" />
 =======
         <activity android:name=".LoginActivity" />
+<<<<<<< HEAD
         <activity android:name=".FirstTimeActivity"></activity>
 =======
         <activity android:name=".LoginActivity" />
         <activity android:name=".FirstTimeActivity" />
 >>>>>>> b5512f5328612c07d7f17d89ae6ccc8a97a43cd1
+=======
+        <activity android:name=".FirstTimeActivity" />
+>>>>>>> 899863a1ebeb974475a15e8b8e377507834c3785
         <activity android:name=".SearchActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".NotificationActivity" />
@@ -44,12 +48,17 @@
             android:resource="@array/preloaded_fonts" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".EditActivity"></activity>
 >>>>>>> 547a5f2bd2d744abfd7773fffb0cabb5e5e09c60
 =======
         <activity android:name=".EditActivity" />
         <activity android:name=".ProfilActivity"></activity>
 >>>>>>> b5512f5328612c07d7f17d89ae6ccc8a97a43cd1
+=======
+        <activity android:name=".EditActivity" />
+        <activity android:name=".ProfilActivity"></activity>
+>>>>>>> 899863a1ebeb974475a15e8b8e377507834c3785
     </application>
 
 </manifest>
