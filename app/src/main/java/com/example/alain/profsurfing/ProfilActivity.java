@@ -94,7 +94,7 @@ public class ProfilActivity extends Activity {
                 case R.id.menu_profil:
                     break;
                 case R.id.menu_calendar:
-                    Intent calendar = new Intent(ProfilActivity.this, CalendarActivity.class);
+                    Intent calendar = new Intent(ProfilActivity.this, CalendarActivity2.class);
                     startActivity(calendar);
                     break;
                 case R.id.menu_notifications:
@@ -138,13 +138,18 @@ public class ProfilActivity extends Activity {
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    valueToDisplay = dataSnapshot.getValue().toString();
-                    myCallback.onCallback(valueToDisplay, textView);
-                    final String firstname = firstNameInfo.getText().toString();
-                    final String lastname = lastNameInfo.getText().toString();
-                    final String names = firstname+ " " +lastname;
-                    System.out.println(name);
-                    name.setText(names);
+                    if (dataSnapshot.getValue() != null){
+                        valueToDisplay=dataSnapshot.getValue().toString();
+                        myCallback.onCallback(valueToDisplay, textView);
+                        final String firstname = firstNameInfo.getText().toString();
+                        final String lastname = lastNameInfo.getText().toString();
+                        final String names = firstname+ " " +lastname;
+                        System.out.println(name);
+                        name.setText(names);
+                    }else {
+
+                    }
+
 
                 }
 

@@ -24,7 +24,7 @@ public class NotificationActivity extends Activity {
                     startActivity(notification);
                     break;
                 case R.id.menu_calendar:
-                    Intent calendar = new Intent(NotificationActivity.this, CalendarActivity.class);
+                    Intent calendar = new Intent(NotificationActivity.this, CalendarActivity2.class);
                     startActivity(calendar);
                     break;
                 case R.id.menu_notifications:
