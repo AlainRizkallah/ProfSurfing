@@ -10,9 +10,10 @@
     <ImageView
         android:id="@+id/main_profil_icon"
         android:layout_width="279dp"
-        android:layout_height="191dp"
+        android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,25 +24,30 @@
     <LinearLayout
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnChoose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="Choose"
-            android:textAllCaps="false" />
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="fitXY"
+            android:src="@drawable/changeicon" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnUpload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="fitXY"
             android:layout_weight="1"
-            android:text="Upload"
-            android:textAllCaps="false" />
+            android:src="@drawable/checkicon" />
+
 
     </LinearLayout>
 
@@ -85,121 +91,207 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:gravity="top|left"
-        android:orientation="vertical"
-        android:layout_marginRight="0dp">
+        android:layout_height="400dp"
+        android:layout_marginTop="200dp">
 
-        <TextView
-            android:id="@+id/studyLevel"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@android:color/holo_blue_light"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="Study level"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/roboto" />
+            android:layout_height="450dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:gravity="top|left"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/studyLevel_edit"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:fontFamily="@font/roboto" />
+            <TextView
+                android:id="@+id/studyLevel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Study level"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto" />
 
-        <TextView
-            android:id="@+id/school"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/holo_blue_light"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="School/College"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/roboto" />
+            <TextView
+                android:id="@+id/studyLevel_edit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto" />
 
-        <TextView
-            android:id="@+id/school_edit"
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:fontFamily="@font/roboto" />
 
-        <TextView
-            android:id="@+id/city"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@android:color/holo_blue_light"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="City"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/roboto" />
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="City"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto" />
 
-        <TextView
-            android:id="@+id/city_edit"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="20dp"
-            android:textSize="16sp"
-            app:fontFamily="@font/roboto" />
+            <TextView
+                android:id="@+id/city_edit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto" />
 
-        <TextView
-            android:id="@+id/weaknesses"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@android:color/holo_blue_light"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:text="Weakness(es)"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/roboto" />
+                <LinearLayout
+                    android:id="@+id/schoolLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/weaknesses_edit"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            app:fontFamily="@font/roboto" />
+                    <TextView
+                        android:id="@+id/school"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="School/College"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
 
-        <TextView
-            android:id="@+id/firstNameInfo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:visibility="invisible" />
-        <TextView
-            android:id="@+id/lastNameInfo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:visibility="invisible" />
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/school_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/jobLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/job"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Job"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+
+                    <TextView
+                        android:id="@+id/job_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/weaknessesLayout"
+                    android:layout_width="600dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/weaknesses"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Weakness(es)"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+
+                    <TextView
+                        android:id="@+id/weaknesses_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/topicsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/topics"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignStart="@+id/topicsLayout"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Topics"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+
+                    <TextView
+                        android:id="@+id/topics_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto" />
+                </LinearLayout>
+
+            <TextView
+                android:id="@+id/firstNameInfo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/lastNameInfo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
