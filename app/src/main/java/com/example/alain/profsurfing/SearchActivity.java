@@ -29,7 +29,7 @@ public class SearchActivity extends Activity {
                     startActivity(profil);
                     break;
                 case R.id.menu_calendar:
-                    Intent calendar = new Intent(SearchActivity.this, CalendarActivity.class);
+                    Intent calendar = new Intent(SearchActivity.this, CalendarActivity2.class);
                     startActivity(calendar);
                     break;
                 case R.id.menu_notifications:

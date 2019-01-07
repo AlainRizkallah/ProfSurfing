@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alain.profsurfing">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -57,8 +59,15 @@
 >>>>>>> b5512f5328612c07d7f17d89ae6ccc8a97a43cd1
 =======
         <activity android:name=".EditActivity" />
+<<<<<<< HEAD
         <activity android:name=".ProfilActivity"></activity>
 >>>>>>> 899863a1ebeb974475a15e8b8e377507834c3785
+=======
+        <activity android:name=".ProfilActivity" />
+        <activity android:name=".AddEventActivity" />
+        <activity android:name=".PopUpActivity" />
+        <activity android:name=".CalendarActivity2"></activity>
+>>>>>>> 381e34e4606d44964ef3b5244eded006f27dd588
     </application>
 
 </manifest>
