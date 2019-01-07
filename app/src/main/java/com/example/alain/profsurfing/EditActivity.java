@@ -119,7 +119,7 @@ public class EditActivity extends Activity {
                     startActivity(profil);
                     break;
                 case R.id.menu_calendar:
-                    Intent calendar = new Intent(EditActivity.this, CalendarActivity.class);
+                    Intent calendar = new Intent(EditActivity.this, CalendarActivity2.class);
                     startActivity(calendar);
                     break;
                 case R.id.menu_notifications:

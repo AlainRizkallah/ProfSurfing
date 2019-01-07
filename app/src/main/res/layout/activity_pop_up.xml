@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PopUpActivity">
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="453dp"
+        android:background="#ded4d4"
+        app:itemIconTint="#464545"
+        app:itemTextColor="#0a0a0a"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu">
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:gravity="top|left"
+        android:orientation="vertical"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/Beginningtime"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Beginning time"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Beginningtime_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Endtime"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="End time"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Endtime_edit"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Course"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Course"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Course_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:textSize="16sp"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Moreinfo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="More info"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/Moreinfo_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/firstNameInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/lastNameInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
