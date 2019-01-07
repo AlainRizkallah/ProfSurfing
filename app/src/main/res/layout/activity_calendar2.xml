@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     tools:context=".Calendar">
 
     <CalendarView
@@ -16,7 +15,6 @@
         android:layout_marginBottom="71dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-=======
     tools:context=".CalendarActivity2">
 
 
@@ -77,5 +75,4 @@
     </android.support.design.widget.BottomNavigationView>
     </RelativeLayout>
 
->>>>>>> 381e34e4606d44964ef3b5244eded006f27dd588
 </android.support.constraint.ConstraintLayout>

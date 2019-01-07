@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends Activity {
 
@@ -38,13 +39,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-<<<<<<< HEAD
     public void Calendar (View view){
 
         Intent intent = new Intent(this, Calendar.class);
         startActivity(intent);
     }
-=======
 
     public void onStart() {
         super.onStart();
@@ -61,5 +60,4 @@ public class MainActivity extends Activity {
 
     }
 
->>>>>>> 547a5f2bd2d744abfd7773fffb0cabb5e5e09c60
 }
