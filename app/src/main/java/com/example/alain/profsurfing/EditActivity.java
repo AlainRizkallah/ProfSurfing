@@ -41,11 +41,9 @@ import static android.graphics.BitmapFactory.decodeByteArray;
 
 
 public class EditActivity extends Activity {
-    public EditText firstNameEdit, lastNameEdit, cityEdit, schoolEdit, studyLevelEdit, weaknessesEdit;
-    public String newFirstName, newLastName, newCity, userId, newSchool, newStudyLevel, newWeaknesses, randomValue;
+    public EditText firstNameEdit, lastNameEdit, cityEdit, schoolEdit, studyLevelEdit, weaknessesEdit, jobEdit, topicsEdit;
+    public String newFirstName, newLastName, newCity, userId, newSchool, newStudyLevel, newWeaknesses, newJob, newTopics;
     private DatabaseReference mDatabase;
-    private ImageView imageView;
-    private TextView name;
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -61,13 +59,11 @@ public class EditActivity extends Activity {
         schoolEdit = findViewById(R.id.school_edit);
         studyLevelEdit = findViewById(R.id.studyLevel_edit);
         weaknessesEdit = findViewById(R.id.weaknesses_edit);
-        name = findViewById(R.id.name);
-        imageView = (ImageView) findViewById(R.id.imgView);
+        jobEdit = findViewById(R.id.job_edit);
+        topicsEdit = findViewById(R.id.topics_edit);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-
         navigation();
-
     }
 
 
@@ -80,22 +76,36 @@ public class EditActivity extends Activity {
         newSchool= schoolEdit.getText().toString();
         newStudyLevel = studyLevelEdit.getText().toString();
         newWeaknesses = weaknessesEdit.getText().toString();
+        newJob = jobEdit.getText().toString();
+        newTopics = topicsEdit.getText().toString();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Boolean allFieldsEmpty = newFirstName.isEmpty() && newLastName.isEmpty() && newCity.isEmpty() && newSchool.isEmpty() && newStudyLevel.isEmpty() && newWeaknesses.isEmpty() && newTopics.isEmpty() && newJob.isEmpty();
         if (user != null) {
             userId= user.getUid();
-            mDatabase.child("users").child(userId).child("firstname").setValue(newFirstName);
-            mDatabase.child("users").child(userId).child("lastname").setValue(newLastName);
-            mDatabase.child("users").child(userId).child("school").setValue(newSchool);
-            mDatabase.child("users").child(userId).child("city").setValue(newCity);
-            mDatabase.child("users").child(userId).child("study_level").setValue(newStudyLevel);
-            mDatabase.child("users").child(userId).child("weaknesses").setValue(newWeaknesses);
+            updateDatabase("firstname",newFirstName);
+            updateDatabase("lastname",newLastName);
+            updateDatabase("school",newSchool);
+            updateDatabase("city",newCity);
+            updateDatabase("study_level",newStudyLevel);
+            updateDatabase("weaknesses",newWeaknesses);
+            updateDatabase("job",newJob);
+            updateDatabase("topics",newTopics);
+            if(allFieldsEmpty) {
+                Toast.makeText(EditActivity.this, "All fields are empty",
+                    Toast.LENGTH_SHORT).show();}
+                    else {
+                Toast.makeText(EditActivity.this, "Profil updated",
+                    Toast.LENGTH_SHORT).show();
+            }
             } else {
         }
-        Log.d("randomValue", randomValue);
-        Intent intent = new Intent(EditActivity.this, ProfilActivity.class);
-        intent.putExtra("imageId", randomValue);
-        startActivity(intent);
         }
+    public void updateDatabase(String child, String value){
+        if(!value.isEmpty()) {
+            mDatabase.child("users").child(userId).child(child).setValue(value);
+        }else {
+        }
+    }
 
     public void navigation(){
         BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);
