@@ -17,17 +17,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="235dp"
-        android:layout_height="139dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="77dp"
-        android:layout_marginLeft="77dp"
-        android:layout_marginTop="62dp"
-        android:layout_weight="0" />
 
     <ScrollView
         android:layout_width="377dp"
@@ -35,13 +24,13 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="11dp"
         android:layout_marginLeft="11dp"
-        android:layout_marginTop="205dp"
+        android:layout_marginTop="130dp"
         android:layout_weight="1"
         android:scrollbars="none">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -56,52 +45,6 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
 
-            <TextView
-                android:id="@+id/img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="47dp"
-                android:text="Profil image"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                >
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnChoose"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:text="Choose"
-                        android:textAllCaps="false" />
-
-                    <Button
-                        android:id="@+id/btnUpload"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:text="Upload"
-                        android:textAllCaps="false" />
-
-                </LinearLayout>
-
-            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -182,6 +125,28 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/job"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Job"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/job_edit"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:id="@+id/city"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -228,6 +193,28 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/topics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Topics"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/topics_edit"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:id="@+id/studyLevel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -249,12 +236,8 @@
     <Button
         android:layout_width="120dp"
         android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="137dp"
-        android:layout_marginLeft="137dp"
-        android:layout_marginBottom="88dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
         android:background="@android:color/holo_green_dark"
         android:onClick="validateEdit"
         android:text="VALIDER" />

@@ -1,6 +1,7 @@
 package com.example.alain.profsurfing;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -51,7 +52,8 @@ public class CreateAccountActivity extends Activity {
                             Log.d("createsuc", "createUserWithEmail:success");
                             Toast.makeText(CreateAccountActivity.this, "Authentication succ.",
                                     Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent profile_intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+                            startActivity(profile_intent);
                            // writeNewUser(task.getResult().getUser().getUid(),firstName.getText().toString(),lastName.getText().toString(),tutorswitch.isChecked());
                             //updateUI(user);
                         } else {
@@ -81,6 +83,5 @@ public class CreateAccountActivity extends Activity {
     }
     public void CreateAccountButton(View view) {
         createAccount(email.getText().toString(),pw.getText().toString());
-
     }
 }
