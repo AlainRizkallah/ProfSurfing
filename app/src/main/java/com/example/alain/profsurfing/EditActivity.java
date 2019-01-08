@@ -157,7 +157,7 @@ public class EditActivity extends Activity {
             updateDatabase("lastname",newLastName);
             updateDatabase("school",newSchool);
             updateDatabase("city",newCity);
-            updateDatabase("study_level",newStudyLevel);
+            updateDatabase("studyLevel",newStudyLevel);
             updateDatabase("weaknesses",newWeaknesses);
             updateDatabase("job",newJob);
             updateDatabase("topics",newTopics);

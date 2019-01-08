@@ -124,6 +124,8 @@ public class ProfilActivity extends Activity {
             }
         });
 
+
+
     }
 
     private void chooseImage() {
@@ -165,7 +167,6 @@ public class ProfilActivity extends Activity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             Toast.makeText(ProfilActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -227,10 +228,9 @@ public class ProfilActivity extends Activity {
         readDatum(myCallback, "/city", cityInfo);
         readDatum(myCallback, "/school", schoolInfo);
         readDatum(myCallback, "/weaknesses", weaknessesInfo);
-        readDatum(myCallback, "/study_level", studyLevelInfo);
+        readDatum(myCallback, "/studyLevel", studyLevelInfo);
         readDatum(myCallback, "/job", job);
         readDatum(myCallback, "/topics", topics);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 

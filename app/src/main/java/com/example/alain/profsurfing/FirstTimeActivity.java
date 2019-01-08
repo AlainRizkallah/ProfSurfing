@@ -78,8 +78,10 @@ public class FirstTimeActivity extends Activity {
     }
 
     public void startButton(View view) {
-        Boolean allFieldsFilled = !lastName.getText().toString().isEmpty() && !firstName.getText().toString().isEmpty() && !city.getText().toString().equals("") && !school.getText().toString().isEmpty() && !studyLevel.getText().toString().isEmpty() && !weaknesses.getText().toString().isEmpty() && !job.getText().toString().isEmpty() && !topics.getText().toString().isEmpty();
-        if(allFieldsFilled){
+        Boolean allStudentFieldsFilled = !tutorswitch.isChecked() && !lastName.getText().toString().isEmpty() && !firstName.getText().toString().isEmpty() && !city.getText().toString().equals("") && !school.getText().toString().isEmpty() && !studyLevel.getText().toString().isEmpty() && !weaknesses.getText().toString().isEmpty();
+        Boolean allTutorFieldsFilled = tutorswitch.isChecked() && !lastName.getText().toString().isEmpty() && !firstName.getText().toString().isEmpty() && !city.getText().toString().equals("") && !studyLevel.getText().toString().isEmpty() && !job.getText().toString().isEmpty() && !topics.getText().toString().isEmpty();
+
+        if(allStudentFieldsFilled || allTutorFieldsFilled){
             writeNewUser(user.getUid());
             Intent profil_intent = new Intent(this, ProfilActivity.class);
             startActivity(profil_intent);
