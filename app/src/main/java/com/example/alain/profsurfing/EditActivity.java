@@ -15,8 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +28,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -42,8 +48,11 @@ import static android.graphics.BitmapFactory.decodeByteArray;
 
 public class EditActivity extends Activity {
     public EditText firstNameEdit, lastNameEdit, cityEdit, schoolEdit, studyLevelEdit, weaknessesEdit, jobEdit, topicsEdit;
-    public String newFirstName, newLastName, newCity, userId, newSchool, newStudyLevel, newWeaknesses, newJob, newTopics;
-    private DatabaseReference mDatabase;
+    public String valueToDisplay, newFirstName, newLastName, newCity, userId, newSchool, newStudyLevel, newWeaknesses, newJob, newTopics;
+    private DatabaseReference mDatabase, reference;
+    private TextView test;
+    private LinearLayout jobLayout, weaknessesLayout, topicsLayout, schoolLayout;
+    private Switch isTutorSwitch;
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -61,12 +70,74 @@ public class EditActivity extends Activity {
         weaknessesEdit = findViewById(R.id.weaknesses_edit);
         jobEdit = findViewById(R.id.job_edit);
         topicsEdit = findViewById(R.id.topics_edit);
+        jobLayout = findViewById(R.id.jobLayout);
+        weaknessesLayout = findViewById(R.id.weaknessesLayout);
+        topicsLayout = findViewById(R.id.topicsLayout);
+        schoolLayout = findViewById(R.id.schoolLayout);
+        isTutorSwitch = findViewById(R.id.switch1);
+        test = findViewById(R.id.test);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         navigation();
+        getTutorValue(new ProfilActivity.MyCallback() {
+            @Override
+            public void onCallback(String value, TextView textView) {
+                if(value.equals("false")){
+                    jobLayout.setVisibility(View.GONE);
+                    topicsLayout.setVisibility(View.GONE);
+                    isTutorSwitch.setChecked(false);
+                }else {
+                    schoolLayout.setVisibility(View.GONE);
+                    weaknessesLayout.setVisibility(View.GONE);
+                    isTutorSwitch.setChecked(true);
+                }
+            }
+        });
+        isTutorSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    schoolLayout.setVisibility(View.GONE);
+                    weaknessesLayout.setVisibility(View.GONE);
+                    jobLayout.setVisibility(View.VISIBLE);
+                    topicsLayout.setVisibility(View.VISIBLE);
+
+                } else {
+                    schoolLayout.setVisibility(View.VISIBLE);
+                    weaknessesLayout.setVisibility(View.VISIBLE);
+                    jobLayout.setVisibility(View.GONE);
+                    topicsLayout.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
 
+    public void getTutorValue(ProfilActivity.MyCallback myCallback){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            userId = user.getUid();
+            reference = mDatabase.child("users/" + userId + "/tutor");
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue() != null) {
+                        valueToDisplay = dataSnapshot.getValue().toString();
+                        myCallback.onCallback(valueToDisplay, test);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Getting Post failed, log a message
+                    Toast.makeText(EditActivity.this, "An error occured, please try later",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else {
+
+        }
+    }
 
 
     public void validateEdit(View view) {
@@ -90,6 +161,7 @@ public class EditActivity extends Activity {
             updateDatabase("weaknesses",newWeaknesses);
             updateDatabase("job",newJob);
             updateDatabase("topics",newTopics);
+            updateDatabase("tutor",String.valueOf(isTutorSwitch.isChecked()));
             if(allFieldsEmpty) {
                 Toast.makeText(EditActivity.this, "All fields are empty",
                     Toast.LENGTH_SHORT).show();}

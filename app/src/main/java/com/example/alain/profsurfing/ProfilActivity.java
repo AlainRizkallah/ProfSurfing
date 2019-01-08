@@ -86,23 +86,24 @@ public class ProfilActivity extends Activity {
         topics = findViewById(R.id.topics_edit);
         job = findViewById(R.id.job_edit);
         storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();mDatabase = FirebaseDatabase.getInstance().getReference();
+        storageReference = storage.getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         navigationBar();
         readData(new MyCallback() {
             @Override
             public void onCallback(String value, TextView textView) {
-
                     textView.setText(value);
             }
         });
         getTutorValue(new MyCallback() {
             @Override
             public void onCallback(String value, TextView textView) {
-                if(value.toString() == "false"){
+                if(value.equals("false")){
                     topicsLayout.setVisibility(View.GONE);
                     jobLayout.setVisibility(View.GONE);
-                }else {
+                }
+                else {
                     schoolLayout.setVisibility(View.GONE);
                     weaknessesLayout.setVisibility(View.GONE);
                 }
@@ -124,7 +125,6 @@ public class ProfilActivity extends Activity {
         });
 
     }
-    //Android:visibility pour display composant sous condition
 
     private void chooseImage() {
         Intent intent = new Intent();

@@ -143,7 +143,6 @@ public class SearchActivity extends AppCompatActivity {
                     startActivity(edit);
                     break;
             }
-
             return false;
         });
     }
