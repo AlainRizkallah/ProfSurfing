@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,11 +28,14 @@ import java.util.Map;
 import androidx.versionedparcelable.ParcelField;
 
 public class AddEventActivity extends Activity {
-    public EditText begtimeEdit, endtimeEdit, courseEdit, moreinfoEdit;
-    public String newbeginningtime, newendtime, newcourse, userId, newmoreinfo;
+    public EditText begtimeEdit, endtimeEdit, courseEdit, moreinfoEdit, adressEdit;
+    public String newbeginningtime, newendtime, newcourse, userId, newmoreinfo, newadress, currentDate;
+    public TextView dateEdit;
     DatabaseReference mDatabase;
+    public ArrayList<Map<String,String>> events = new ArrayList<>();
     DatabaseReference refdata;
     Button submit;
+
     FirebaseStorage storage;
     StorageReference storageReference;
     private FirebaseAuth mAuth;
@@ -41,56 +45,39 @@ public class AddEventActivity extends Activity {
         setContentView(R.layout.activity_add_event);
         begtimeEdit = findViewById(R.id.beginningtime_edit);
         endtimeEdit = findViewById(R.id.endtime_edit);
+        adressEdit = findViewById(R.id.address_edit);
         courseEdit = findViewById(R.id.course_edit);
         moreinfoEdit = findViewById(R.id.moreinfo_edit);
         submit = findViewById(R.id.confirmevent);
+        dateEdit = findViewById(R.id.date_edit);
+        Intent intent = getIntent();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-      //  refdata = mDatabase.child("users").child(userId);
+        currentDate = intent.getStringExtra("date");
+        dateEdit.setText(currentDate);
         navigation();
     }
 
     public void validateEdit(View view){
+        newadress = adressEdit.getText().toString();
         newbeginningtime= begtimeEdit.getText().toString();
         newendtime= endtimeEdit.getText().toString();
         newcourse= courseEdit.getText().toString();
         newmoreinfo= moreinfoEdit.getText().toString();
-//        DatabaseReference refdata = mDatabase.child("users").child(userId);
         Map<String, String> event = new HashMap<String, String>();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        event.put("currentdate", currentDate);
         event.put("newbeginningtime", newbeginningtime);
         event.put("newendtime", newendtime);
         event.put("newcourse", newcourse);
+        event.put("newadress", newadress);
         event.put("newmoreinfo", newmoreinfo);
+        events.add(event);
         if (user != null) {
             userId= user.getUid();
             Log.d("event", String.valueOf(event));
-            mDatabase.child("users").child(userId).child("event").setValue("HELOOOO");
+            mDatabase.child("users").child(userId).child("event").setValue(events);
         }
     }
-
-
-
-   /* public void validateEdit(View view) {
-        newbeginningtime= begtimeEdit.getText().toString();
-        newendtime= endtimeEdit.getText().toString();
-        newcourse= courseEdit.getText().toString();
-        newmoreinfo= moreinfoEdit.getText().toString();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            userId= user.getUid();
-            Map<String, String> event = new HashMap<String, String>();
-            event.put("beginningtime",newbeginningtime);
-            event.put("endtime",newendtime);
-            event.put("course",newcourse);
-            event.put("moreinfo",newmoreinfo);
-            refdata.push().setValue(event);
-        } else {
-        }
-    }
-*/
-
-
-
 
     public void navigation(){
         BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);

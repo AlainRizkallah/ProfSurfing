@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/AppTheme"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".CalendarActivity">
+    tools:context=".AddEventActivity"
+    tools:ignore="ExtraText">
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -26,11 +27,31 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="61dp"
         android:gravity="top|left"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/date_edit"
+            android:layout_width="1060dp"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/beginningtime"
@@ -75,6 +96,20 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/adress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adress"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/address_edit"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
             android:id="@+id/moreinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +120,7 @@
 
         <EditText
             android:id="@+id/moreinfo_edit"
-            android:layout_width="190dp"
+            android:layout_width="277dp"
             android:layout_height="wrap_content" />
 
         <Button
@@ -93,8 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="validateEdit"
-            android:text="Confirm Event"
-             />
+            android:text="Confirm Event" />
 
     </LinearLayout>
 

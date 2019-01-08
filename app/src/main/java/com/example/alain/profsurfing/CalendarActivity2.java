@@ -22,31 +22,19 @@ public class CalendarActivity2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar2);
         test();
-        calendarprof = findViewById(R.id.profcalendar);
+
         calender = findViewById(R.id.calendarView2);
         Popup = findViewById(R.id.popup);
 
-        Popup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i2 = new Intent(getApplicationContext(), PopUpActivity.class);
-                startActivity(i2);
-            }
-        });
-        calendarprof.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i3 = new Intent(getApplicationContext(), CalendarProfActivity.class);
-                startActivity(i3);
-            }
-        });
-        /*calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView arg0, int year, int month, int date) {
-                Toast.makeText(getApplicationContext(),date+ "/"+(month+1)+"/"+year, Toast.LENGTH_SHORT).show();
+                Intent i2 = new Intent(getApplicationContext(), PopUpActivity.class);
+                startActivity(i2);
 
             }
-        });*/
+        });
         calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
@@ -60,7 +48,9 @@ public class CalendarActivity2 extends Activity {
             }
         });
     }
+    public void showpopup(){
 
+    }
 
     public void test(){
         BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,9 +22,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class PopUpActivity extends Activity {
-    public TextView BegtimeInfo,EndtimeInfo, CourseInfo, MoreinfoInfo, name ;
+    public TextView BegtimeInfo,EndtimeInfo, CourseInfo, MoreinfoInfo, DateInfo, name ;
     private DatabaseReference mDatabase, reference;
-    public String userId, valueToDisplay;
+    public String userId, eventId, valueToDisplay;
     FirebaseStorage storage;
     StorageReference storageReference;
     @Override
@@ -36,11 +37,11 @@ public class PopUpActivity extends Activity {
         MoreinfoInfo = findViewById(R.id.Moreinfo_edit);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();mDatabase = FirebaseDatabase.getInstance().getReference();
+        Log.d("I am in the popin", "popin");
         readData(new ProfilActivity.MyCallback() {
             @Override
             public void onCallback(String value, TextView textView) {
-
-                textView.setText(value);
+                Log.d("value",value);
             }
         });
 
@@ -54,49 +55,21 @@ public class PopUpActivity extends Activity {
     }
 
     public void readData(ProfilActivity.MyCallback myCallback) {
+        readDatum(myCallback, "/date", DateInfo);
         readDatum(myCallback, "/beginningtime", BegtimeInfo);
         readDatum(myCallback, "/endtime", EndtimeInfo);
         readDatum(myCallback, "/course", CourseInfo);
         readDatum(myCallback, "/moreinfo", MoreinfoInfo);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
 
-
-    public void readDatum (MyCallback myCallback, String child, TextView textView) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            mDatabase = FirebaseDatabase.getInstance().getReference();
-            userId= user.getUid();
-            reference = mDatabase.child("users/" + userId + child);
-
-            reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.getValue() != null) {
-                        valueToDisplay = dataSnapshot.getValue().toString();
-                        myCallback.onCallback(valueToDisplay, name);
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    // Getting Post failed, log a message
-                    Toast.makeText(PopUpActivity.this, "An error occured, please try later",
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-        } else {
-        }
-    }
 
     public void readDatum (ProfilActivity.MyCallback myCallback, String child, TextView textView) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             mDatabase = FirebaseDatabase.getInstance().getReference();
             userId= user.getUid();
-            reference = mDatabase.child("users/" + userId + child);
+            reference = mDatabase.child("users/" + userId + "event/" + "0" + child);
 
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -121,6 +94,7 @@ public class PopUpActivity extends Activity {
         } else {
         }
     }
+
 
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();

@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -40,6 +41,7 @@ import java.util.ArrayList;
 public class SearchActivity extends AppCompatActivity {
     private EditText search;
     private ImageButton searchbtn;
+    private Button calendarprof;
     private RecyclerView result;
     private DatabaseReference mUserDatabase;
     @Override
@@ -47,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         mUserDatabase = FirebaseDatabase.getInstance().getReference("users");
-
+        calendarprof = findViewById(R.id.profcalendar);
         test();
         search = findViewById(R.id.search_edit);
         searchbtn = findViewById(R.id.imageButton);
@@ -62,6 +64,14 @@ public class SearchActivity extends AppCompatActivity {
 
                 firebaseUserSearch(searchText);
 
+            }
+        });
+
+        calendarprof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i3 = new Intent(getApplicationContext(), CalendarProfActivity.class);
+                startActivity(i3);
             }
         });
 

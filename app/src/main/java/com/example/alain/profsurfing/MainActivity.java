@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 
     public void Calendar (View view){
 
-        Intent intent = new Intent(this, Calendar.class);
+        Intent intent = new Intent(this, CalendarActivity2.class);
         startActivity(intent);
     }
 
