@@ -5,14 +5,57 @@
     android:theme="@style/AppTheme"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+
+
+        <EditText
+            android:id="@+id/search_edit"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:hint="Search a professor" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="47dp"
+        android:layout_height="54dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:srcCompat="@drawable/searchicon" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButton"
+         />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
         android:background="#ded4d4"
         app:itemIconTint="#464545"
         app:itemTextColor="#0a0a0a"
         app:menu="@menu/menu" />
+
+    <Button
+        android:id="@+id/profcalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="296dp"
+        android:text="profcalendar" />
+
+
 </RelativeLayout>

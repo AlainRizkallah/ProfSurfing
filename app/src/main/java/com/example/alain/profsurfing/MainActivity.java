@@ -16,8 +16,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
-
 public class MainActivity extends Activity {
 
     private FirebaseAuth mAuth;
@@ -41,6 +39,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void Calendar (View view){
+
+        Intent intent = new Intent(this, CalendarActivity2.class);
+        startActivity(intent);
+    }
 
     public void onStart() {
         super.onStart();

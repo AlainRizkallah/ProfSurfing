@@ -90,4 +90,5 @@ public class FirstTimeActivity extends Activity {
                     Toast.LENGTH_SHORT).show();
         }
     }
+
 }
