@@ -35,7 +35,6 @@ public class AddEventActivity extends Activity {
     FirebaseStorage storage;
     StorageReference storageReference;
     private FirebaseAuth mAuth;
-    ArrayList<String> event = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,7 @@ public class AddEventActivity extends Activity {
         moreinfoEdit = findViewById(R.id.moreinfo_edit);
         submit = findViewById(R.id.confirmevent);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        refdata = mDatabase.child("users").child(userId);
+      //  refdata = mDatabase.child("users").child(userId);
         navigation();
     }
 
@@ -55,15 +54,17 @@ public class AddEventActivity extends Activity {
         newendtime= endtimeEdit.getText().toString();
         newcourse= courseEdit.getText().toString();
         newmoreinfo= moreinfoEdit.getText().toString();
-        DatabaseReference refdata = mDatabase.child("users").child(userId);
+//        DatabaseReference refdata = mDatabase.child("users").child(userId);
         Map<String, String> event = new HashMap<String, String>();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        event.put("newbeginningtime", newbeginningtime);
+        event.put("newendtime", newendtime);
+        event.put("newcourse", newcourse);
+        event.put("newmoreinfo", newmoreinfo);
         if (user != null) {
-            event.put("newbeginningtime", newbeginningtime);
-            event.put("newendtime", newendtime);
-            event.put("newcourse", newcourse);
-            event.put("newmoreinfo", newmoreinfo);
-            refdata.push().setValue(event);
+            userId= user.getUid();
+            Log.d("event", String.valueOf(event));
+            mDatabase.child("users").child(userId).child("event").setValue("HELOOOO");
         }
     }
 
