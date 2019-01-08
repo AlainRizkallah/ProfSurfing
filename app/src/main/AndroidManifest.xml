@@ -37,7 +37,10 @@
         <activity android:name=".ProfilActivity" />
         <activity android:name=".AddEventActivity" />
         <activity android:name=".PopUpActivity" />
-        <activity android:name=".CalendarActivity2"></activity>
+        <activity android:name=".CalendarActivity2" />
+        <activity android:name=".CalendarProfActivity" />
+        <activity android:name=".SearchAdapater" />
+        <activity android:name=".Users"></activity>
     </application>
 
 </manifest>

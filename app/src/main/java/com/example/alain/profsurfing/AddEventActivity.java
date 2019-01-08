@@ -8,20 +8,34 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import androidx.versionedparcelable.ParcelField;
+
 public class AddEventActivity extends Activity {
     public EditText begtimeEdit, endtimeEdit, courseEdit, moreinfoEdit;
-    public String newbeginningtime, newendtime, newcourse, userId, newmoreinfo, randomValue;
-    private DatabaseReference mDatabase;
+    public String newbeginningtime, newendtime, newcourse, userId, newmoreinfo;
+    DatabaseReference mDatabase;
+    DatabaseReference refdata;
+    Button submit;
     FirebaseStorage storage;
     StorageReference storageReference;
+    private FirebaseAuth mAuth;
+    ArrayList<String> event = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +44,32 @@ public class AddEventActivity extends Activity {
         endtimeEdit = findViewById(R.id.endtime_edit);
         courseEdit = findViewById(R.id.course_edit);
         moreinfoEdit = findViewById(R.id.moreinfo_edit);
+        submit = findViewById(R.id.confirmevent);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        refdata = mDatabase.child("users").child(userId);
         navigation();
+    }
+
+    public void validateEdit(View view){
+        newbeginningtime= begtimeEdit.getText().toString();
+        newendtime= endtimeEdit.getText().toString();
+        newcourse= courseEdit.getText().toString();
+        newmoreinfo= moreinfoEdit.getText().toString();
+        DatabaseReference refdata = mDatabase.child("users").child(userId);
+        Map<String, String> event = new HashMap<String, String>();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            event.put("newbeginningtime", newbeginningtime);
+            event.put("newendtime", newendtime);
+            event.put("newcourse", newcourse);
+            event.put("newmoreinfo", newmoreinfo);
+            refdata.push().setValue(event);
+        }
     }
 
 
 
-    public void validateEdit(View view) {
+   /* public void validateEdit(View view) {
         newbeginningtime= begtimeEdit.getText().toString();
         newendtime= endtimeEdit.getText().toString();
         newcourse= courseEdit.getText().toString();
@@ -43,17 +77,19 @@ public class AddEventActivity extends Activity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             userId= user.getUid();
-            mDatabase.child("users").child(userId).child("beginningtime").setValue(newbeginningtime);
-            mDatabase.child("users").child(userId).child("endtime").setValue(newendtime);
-            mDatabase.child("users").child(userId).child("course").setValue(newcourse);
-            mDatabase.child("users").child(userId).child("moreinfo").setValue(newmoreinfo);
+            Map<String, String> event = new HashMap<String, String>();
+            event.put("beginningtime",newbeginningtime);
+            event.put("endtime",newendtime);
+            event.put("course",newcourse);
+            event.put("moreinfo",newmoreinfo);
+            refdata.push().setValue(event);
         } else {
         }
-        Log.d("randomValue", randomValue);
-        Intent intent = new Intent(AddEventActivity.this, CalendarActivity2.class);
-        intent.putExtra("imageId", randomValue);
-        startActivity(intent);
     }
+*/
+
+
+
 
     public void navigation(){
         BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);

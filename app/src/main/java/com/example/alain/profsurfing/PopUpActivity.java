@@ -17,11 +17,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class PopUpActivity extends Activity {
     public TextView BegtimeInfo,EndtimeInfo, CourseInfo, MoreinfoInfo, name ;
     private DatabaseReference mDatabase, reference;
     public String userId, valueToDisplay;
+    FirebaseStorage storage;
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +34,12 @@ public class PopUpActivity extends Activity {
         EndtimeInfo = findViewById(R.id.Endtime_edit);
         CourseInfo = findViewById(R.id.Course_edit);
         MoreinfoInfo = findViewById(R.id.Moreinfo_edit);
-        navigationBar();
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();mDatabase = FirebaseDatabase.getInstance().getReference();
         readData(new ProfilActivity.MyCallback() {
             @Override
             public void onCallback(String value, TextView textView) {
+
                 textView.setText(value);
             }
         });
@@ -42,36 +48,7 @@ public class PopUpActivity extends Activity {
     //Android:visibility pour display composant sous condition
 
 
-    public void navigationBar () {
-        BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);
-        Menu menu = mBottomNavigation.getMenu();
-        MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true);
-        mBottomNavigation.setOnNavigationItemSelectedListener((item) -> {
-            switch (item.getItemId()) {
-                case R.id.menu_profil:
-                    break;
-                case R.id.menu_calendar:
-                    Intent calendar = new Intent(PopUpActivity.this, CalendarActivity2.class);
-                    startActivity(calendar);
-                    break;
-                case R.id.menu_notifications:
-                    Intent notification = new Intent(PopUpActivity.this, NotificationActivity.class);
-                    startActivity(notification);
-                    break;
-                case R.id.menu_search:
-                    Intent search = new Intent(PopUpActivity.this, SearchActivity.class);
-                    startActivity(search);
-                    break;
-                case R.id.menu_edit:
-                    Intent edit = new Intent(PopUpActivity.this, EditActivity.class);
-                    startActivity(edit);
-                    break;
-            }
 
-            return false;
-        });
-}
     public interface MyCallback {
         void onCallback(String value, TextView textView);
     }
@@ -81,6 +58,37 @@ public class PopUpActivity extends Activity {
         readDatum(myCallback, "/endtime", EndtimeInfo);
         readDatum(myCallback, "/course", CourseInfo);
         readDatum(myCallback, "/moreinfo", MoreinfoInfo);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+    }
+
+
+
+    public void readDatum (MyCallback myCallback, String child, TextView textView) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            userId= user.getUid();
+            reference = mDatabase.child("users/" + userId + child);
+
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue() != null) {
+                        valueToDisplay = dataSnapshot.getValue().toString();
+                        myCallback.onCallback(valueToDisplay, name);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Getting Post failed, log a message
+                    Toast.makeText(PopUpActivity.this, "An error occured, please try later",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+        }
     }
 
     public void readDatum (ProfilActivity.MyCallback myCallback, String child, TextView textView) {
@@ -93,13 +101,13 @@ public class PopUpActivity extends Activity {
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    valueToDisplay = dataSnapshot.getValue().toString();
-                    myCallback.onCallback(valueToDisplay, textView);
-                    final String beginningtime = BegtimeInfo.getText().toString();
-                    final String endtime = EndtimeInfo.getText().toString();
-                    final String names = beginningtime+ " " +endtime;
-                    System.out.println(name);
-                    name.setText(names);
+                    if (dataSnapshot.getValue() != null){
+                        valueToDisplay=dataSnapshot.getValue().toString();
+                        myCallback.onCallback(valueToDisplay, textView);
+                    }else {
+
+                    }
+
 
                 }
 
