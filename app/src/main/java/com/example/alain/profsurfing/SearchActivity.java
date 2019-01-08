@@ -43,7 +43,6 @@ public class SearchActivity extends Activity {
                     startActivity(edit);
                     break;
             }
-
             return false;
         });
     }
