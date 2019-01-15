@@ -6,13 +6,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-
-        <EditText
-            android:id="@+id/search_edit"
-            android:layout_width="326dp"
-            android:layout_height="wrap_content"
-            android:hint="Search a professor" />
+    <EditText
+        android:id="@+id/search_edit"
+        android:layout_width="326dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="-1dp"
+        android:hint="Search a professor" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -21,9 +23,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/searchicon" />
 
     <android.support.v7.widget.RecyclerView
@@ -37,9 +40,7 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="540dp"
         android:background="#ded4d4"
         app:itemIconTint="#464545"
         app:itemTextColor="#0a0a0a"

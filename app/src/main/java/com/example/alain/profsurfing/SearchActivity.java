@@ -124,8 +124,6 @@ public class SearchActivity extends AppCompatActivity {
         }
 
 
-
-
     }
     public void test(){
         BottomNavigationView mBottomNavigation =(BottomNavigationView) findViewById(R.id.navigation);
